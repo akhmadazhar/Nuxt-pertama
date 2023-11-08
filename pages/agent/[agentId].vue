@@ -27,18 +27,18 @@ function selectAbility(ability) {
                     Agent List
                 </v-btn>
             </div>
-            <h1>Agent - {{ agent?.data.displayName }}</h1>
+            <h1 class="text-center mt-10">Agent - {{ agent?.data.displayName }}</h1>
 
-            <v-row v-if="agent?.data">
-                <v-col>
+            <v-row v-if="agent?.data" class="pa-4">
+                <v-col v-if="$vuetify.display.mdAndUp" md="4">
                     <v-img :src="agent.data.background" />
                 </v-col>
-                <v-col>
-                    <div class="d-flex ">
+                <v-col cols="12" md="4">
+                    <div class="d-flex">
                         <v-img :src="agent.data.fullPortraitV2" height="700" cover />
                     </div>
                 </v-col>
-                <v-col class="px-8">
+                <v-col class="px-4" md="4">
                     <div class="d-flex flex-column">
                         <div class="">{{ agent.data.role.displayName }}</div>
                         <div class="mb-8 text-h2 font-weight-bold text-uppercase">{{ agent.data.displayName }}</div>
@@ -59,7 +59,7 @@ function selectAbility(ability) {
                         <v-col v-for="ability in agent.data.abilities.filter(a => a.slot != 'Passive')" :key="ability.slot"
                             cols="3">
                             <v-card @click="selectAbility(ability)" class="pa-3 mb-3" color="">
-                                <div>{{ ability.slot }}</div>
+                                <!-- <div class="text-center text-caption mb-3">{{ ability.slot }}</div> -->
                                 <v-img :src="ability.displayIcon" />
                             </v-card>
 
